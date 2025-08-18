@@ -1,16 +1,63 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <title>Malla Curricular Interactiva</title>
-  <link rel="stylesheet" href="estilos.css">
-</head>
-<body>
-  <h1>Malla Curricular Interactiva</h1>
-  <p>Haz clic en un ramo para marcarlo como aprobado ✅</p>
-  <div id="malla"></div>
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background: #fafafa;
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+h1 {
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+.semestre {
+  margin-bottom: 30px;
+}
+
+.semestre h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.cursos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.curso {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 160px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.curso:hover {
+  transform: scale(1.05);
+}
+
+.aprobado {
+  background: #a8d8f0; /* celeste pastel */
+  border-color: #2196F3;
+}
+
+.disponible {
+  background: #ffdca8; /* naranja pastel */
+  border-color: #ff9800;
+}
+
+.bloqueado {
+  background: #ffffff; /* blanco */
+  border-color: #ccc;
+  cursor: not-allowed;
+  color: #888; /* gris tenue para distinguir */
+}
+
 
