@@ -1,63 +1,79 @@
+/* Fondo general */
 body {
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  background: #fafafa;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: #FFE5B4; /* Naranja pastel */
+  color: #4A2C2A; /* Marrón oscuro elegante */
+  padding: 30px;
 }
 
+/* Títulos */
 h1 {
+  text-align: center;
   margin-bottom: 10px;
+  font-size: 2em;
+  color: #7B3F00;
 }
 
 p {
+  text-align: center;
   margin-bottom: 20px;
+  font-style: italic;
 }
 
+/* Contenedor de semestres */
+#contenedor-malla {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Cada semestre */
 .semestre {
-  margin-bottom: 30px;
+  background: #FFD39A; /* Naranja más suave */
+  padding: 15px;
+  border-radius: 15px;
+  min-width: 250px;
+  max-width: 250px;
+  box-shadow: 3px 3px 8px rgba(0,0,0,0.1);
 }
 
 .semestre h2 {
-  margin-bottom: 10px;
-  font-size: 20px;
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 5px;
-}
-
-.cursos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.curso {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 10px;
-  min-width: 160px;
   text-align: center;
+  margin-bottom: 15px;
+  color: #5A2D0C;
+}
+
+/* Ramos */
+.curso {
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 8px 0;
+  text-align: center;
+  font-size: 0.95em;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
+  transition: all 0.3s ease;
+}
+
+/* Colores por estado */
+.bloqueado {
+  background: #ffffff; /* Blanco = bloqueado */
+  color: #aaa;
+}
+
+.disponible {
+  background: #FFB347; /* Naranja pastel fuerte */
+  color: #4A2C2A;
+  font-weight: bold;
+}
+
+.aprobado {
+  background: #A7D8FF; /* Celeste pastel */
+  color: #004466;
+  font-weight: bold;
 }
 
 .curso:hover {
   transform: scale(1.05);
 }
-
-.aprobado {
-  background: #a8d8f0; /* celeste pastel */
-  border-color: #2196F3;
-}
-
-.disponible {
-  background: #ffdca8; /* naranja pastel */
-  border-color: #ff9800;
-}
-
-.bloqueado {
-  background: #ffffff; /* blanco */
-  border-color: #ccc;
-  cursor: not-allowed;
-  color: #888; /* gris tenue para distinguir */
-}
-
-
