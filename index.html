@@ -2,13 +2,28 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Ingeniería Civil en Computación e Informática</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Malla Curricular Interactiva</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-  <h1>Ingeniería Civil en Computación e Informática</h1>
+  <header class="topbar">
+    <h1>Malla Curricular Interactiva</h1>
+    <div class="legend">
+      <span class="pill pill-aprobado">Aprobado</span>
+      <span class="pill pill-disponible">Disponible</span>
+      <span class="pill pill-bloqueado">Bloqueado</span>
+      <button id="resetBtn" class="pill pill-reset" title="Quitar aprobaciones">Reset</button>
+    </div>
+  </header>
 
-  <div id="contenedor-malla"></div>
+  <main class="board" id="board" aria-live="polite"></main>
+
+  <footer class="footnote">
+    Haz clic en un ramo para marcarlo como aprobado. Si es prerrequisito de otro, lo **desbloqueará** automáticamente.
+  </footer>
 
   <script src="script.js"></script>
 </body>
