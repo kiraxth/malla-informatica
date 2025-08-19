@@ -1,152 +1,80 @@
-:root{
-  --bg: #FFF3E6;            /* fondo naranjo muy suave */
-  --text: #7a5133;          /* naranjo tostado para buen contraste */
-  --border: #e9c7ac;
-
-  --curso-disponible: #FFD7A6;  /* naranjo pastel para disponibles */
-  --curso-aprobado:   #BEE3F8;  /* celeste pastel para aprobados */
-  --curso-bloqueado:  #FFFFFF;  /* blanco para bloqueados */
-
-  --curso-shadow: rgba(0,0,0,0.06);
-  --pill-bg: rgba(255, 255, 255, 0.6);
+/* Fondo general */
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: #FFE5B4; /* Naranja pastel */
+  color: #4A2C2A; /* Marrón oscuro elegante */
+  padding: 30px;
 }
 
-* { box-sizing: border-box; }
-html, body { height: 100%; }
-body{
-  margin: 0;
-  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: radial-gradient(1200px 800px at 20% -10%, #FFEBDD 0%, var(--bg) 45%, #FFEEDB 100%);
-  color: var(--text);
+/* Títulos */
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 2em;
+  color: #7B3F00;
 }
 
-/* Header */
-.topbar{
-  display: grid;
-  gap: 10px;
-  padding: 18px 20px;
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(3px);
+p {
+  text-align: center;
+  margin-bottom: 20px;
+  font-style: italic;
 }
-.topbar h1{
-  margin: 0;
-  font-weight: 600;
-  letter-spacing: 0.2px;
-}
-.legend{
+
+/* Contenedor de semestres */
+#contenedor-malla {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  align-items: center;
-}
-.pill{
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: var(--pill-bg);
-  font-size: 12px;
-  cursor: default;
-}
-.pill::before{
-  content:"";
-  width: 10px; height: 10px; border-radius: 50%;
-  box-shadow: 0 0 0 1px rgba(0,0,0,0.05) inset;
-}
-.pill-aprobado::before  { background: var(--curso-aprobado); }
-.pill-disponible::before{ background: var(--curso-disponible); }
-.pill-bloqueado::before { background: var(--curso-bloqueado); border: 1px solid #ddd; }
-.pill-reset{
-  background: white;
-  cursor: pointer;
-  transition: transform .15s ease, box-shadow .2s ease;
-}
-.pill-reset:hover{ transform: translateY(-1px); box-shadow: 0 6px 20px -8px var(--curso-shadow); }
-
-/* Tablero de semestres en columnas verticales */
-.board{
-  display: grid;
-  grid-auto-flow: column;                 /* columnas continuas → semestres en vertical */
-  grid-auto-columns: minmax(260px, 280px);
-  gap: 18px;
-  padding: 20px;
-  overflow-x: auto;
-  scroll-snap-type: x proximity;
-}
-.sem-col{
-  display: grid;
-  grid-template-rows: auto 1fr;
-  gap: 12px;
-  padding: 10px;
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  background: rgba(255,255,255,0.6);
-  box-shadow: 0 12px 30px -14px var(--curso-shadow);
-  scroll-snap-align: start;
-}
-.sem-title{
-  height: 110px;                          /* espacio para título vertical */
-  display: flex;
-  align-items: center;
+  gap: 20px;
   justify-content: center;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);               /* texto vertical legible de arriba a abajo */
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: var(--text);
-  border: 1px dashed var(--border);
-  border-radius: 12px;
-  background: #fffaf6;
-}
-.sem-cursos{
-  display: grid;
-  gap: 10px;
 }
 
-/* Tarjetas de curso */
-.curso{
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 10px 12px;
-  line-height: 1.25;
-  box-shadow: 0 8px 24px -16px var(--curso-shadow);
-  transition: transform .12s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+/* Cada semestre */
+.semestre {
+  background: #FFD39A; /* Naranja más suave */
+  padding: 15px;
+  border-radius: 15px;
+  min-width: 250px;
+  max-width: 250px;
+  box-shadow: 3px 3px 8px rgba(0,0,0,0.1);
+}
+
+.semestre h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #5A2D0C;
+}
+
+/* Ramos */
+.curso {
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 8px 0;
+  text-align: center;
+  font-size: 0.95em;
   cursor: pointer;
-}
-.curso .nombre{ font-weight: 600; font-size: 14px; }
-.curso .meta{ font-size: 11px; opacity:.8; margin-top: 4px; }
-
-.curso:hover{ transform: translateY(-2px); box-shadow: 0 16px 32px -18px var(--curso-shadow); }
-
-/* Estados */
-.curso.disponible{
-  background: var(--curso-disponible);
-  border-color: #f3b467;
-}
-.curso.aprobado{
-  background: var(--curso-aprobado);
-  border-color: #64b5f6;
-}
-.curso.bloqueado{
-  background: var(--curso-bloqueado);
-  border-color: var(--border);
-  color: #9a8a7e;
-  cursor: not-allowed;
-}
-.curso.bloqueado:hover{ transform: none; box-shadow: 0 8px 24px -16px var(--curso-shadow); }
-
-/* Footer */
-.footnote{
-  padding: 10px 20px 24px;
-  font-size: 12px;
-  color: #8f6a4d;
-  opacity: .9;
+  transition: all 0.3s ease;
 }
 
-/* Scroll bonito */
-.board::-webkit-scrollbar{ height: 12px; }
-.board::-webkit-scrollbar-track{ background: #ffe9d4; border-radius: 999px; }
-.board::-webkit-scrollbar-thumb{ background: #f6c28b; border-radius: 999px; border: 2px solid #ffe9d4; }
+/* Colores por estado */
+.bloqueado {
+  background: #ffffff; /* Blanco = bloqueado */
+  color: #aaa;
+}
+
+.disponible {
+  background: #FFB347; /* Naranja pastel fuerte */
+  color: #4A2C2A;
+  font-weight: bold;
+}
+
+.aprobado {
+  background: #A7D8FF; /* Celeste pastel */
+  color: #004466;
+  font-weight: bold;
+  text-decoration: line-through; /* <- TACHADO */
+}
+
+.curso:hover {
+  transform: scale(1.05);
+}
